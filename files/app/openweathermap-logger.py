@@ -108,12 +108,7 @@ def getData(client, mqttTopic, config_dict):
     if do_raw_log:
         print(values)
     
-    json_body = { 'reading': [ {
-                                'tags': {'location':  location },
-                                'fields': {k: v for k, v in values.items()}
-                                } ],
-                      'dateTime': datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-                }
+    json_body = { k: v for k, v in values.items() }
 
     if do_raw_log:
         print(f"Send topic `{mqttTopic}`")
