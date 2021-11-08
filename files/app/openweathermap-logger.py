@@ -15,6 +15,8 @@ from datetime import datetime
 
 do_raw_log = os.getenv("LOGGING", "false").lower() == 'true'
 
+pool_frequency = int(os.getenv("POOL_FREQUENCY", "300"))
+
 country = os.getenv('WEATHER_COUNTRY', 'country')
 language = os.getenv('WEATHER_LANGUAGE', 'language')
 
@@ -146,7 +148,7 @@ client.loop_start()
 try:
     while True:
         getData(client, mqttTopic, config_dict)
-        time.sleep(300)
+        time.sleep(pool_frequency)
 except Exception as e:
     print(e) 
     pass

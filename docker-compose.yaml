@@ -5,6 +5,7 @@ services:
     image: revenberg/openweathermapmqtt
     container_name: openweathermapmqtt
     environment:
+      - apikey={{ openweathermap_apikey }}
       - WEATHER_COUNTRY=Surhuisterveen,NL
       - WEATHER_LANGUAGE=nl
       - MQTT_ADDRESS=192.168.2.59
