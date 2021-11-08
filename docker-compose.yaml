@@ -5,8 +5,8 @@ services:
     image: revenberg/openweathermapmqtt
     container_name: solar2mqtt
     environment:
-      - RS485_ADDRESS=192.168.2.40
-      - RS485_PORT=8899
+      - WEATHER_COUNTRY=Surhuisterveen,NL
+      - WEATHER_LANGUAGE=nl
       - MQTT_ADDRESS=192.168.2.59
       - MQTT_PORT=1883
       - MQTT_TOPIC=readings/solar
