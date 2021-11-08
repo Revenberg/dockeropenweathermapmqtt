@@ -1,0 +1,4 @@
+requests
+serial
+pyowm
+paho-mqtt
