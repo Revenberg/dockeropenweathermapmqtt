@@ -10,6 +10,7 @@ import sys
 import json
 import paho.mqtt.client as mqtt
 import random
+import configparser
 from datetime import datetime
 
 do_raw_log = os.getenv("LOGGING", "false").lower() == 'true'
