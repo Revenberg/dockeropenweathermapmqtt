@@ -27,7 +27,7 @@ if [ $ex == true ]; then
 
     echo "==========================================================="
     echo "=                                                         ="
-    echo "=          docker run revenberg/p1logger                  ="
+    echo "=          docker run revenberg/openweathermapmqtt        ="
     echo "=                                                         ="
     echo "==========================================================="
 fi

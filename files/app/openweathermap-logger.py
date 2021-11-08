@@ -145,7 +145,7 @@ client.loop_start()
 
 try:
     while True:
-        getData(client, mqttTopic,)
+        getData(client, mqttTopic, config_dict)
         time.sleep(300)
 except Exception as e:
     print(e) 
