@@ -23,7 +23,7 @@ language = os.getenv('WEATHER_LANGUAGE', 'language')
 mqttclientid = f'python-mqtt-{random.randint(0, 1000)}'
 mqttBroker = os.getenv("MQTT_ADDRESS", "localhost")
 mqttPort = int(os.getenv("MQTT_PORT", "1883"))
-mqttTopic = os.getenv("MQTT_TOPIC", "readings/weather")
+mqttTopic = os.getenv("MQTT_TOPIC", "reading/weather")
 
 apikey = os.getenv('apikey', '')
 

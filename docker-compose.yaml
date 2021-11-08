@@ -10,7 +10,7 @@ services:
       - WEATHER_LANGUAGE=nl
       - MQTT_ADDRESS=192.168.2.59
       - MQTT_PORT=1883
-      - MQTT_TOPIC=readings/weather
+      - MQTT_TOPIC=reading/weather
     restart: always
     depends_on:
       - mqtt
