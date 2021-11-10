@@ -16,11 +16,11 @@ services:
       - mqtt
     restart: always
     links:
-      - mqtt
+      - mqttweather
 
-  mqtt:
+  mqttweather:
     image: "eclipse-mosquitto:latest"
-    container_name: mqtt
+    container_name: mqttweather
     environment:
       - TZ=Europe/Amsterdam
       - "MQTT_BROKER_URL=mqtt://127.0.0.1"
