@@ -68,7 +68,12 @@ def getData(client, mqttTopic, config_dict):
     values["sunrise"] = w.sunrise_time()*1000 #Sunrise time (GMT UNIXtime or ISO 8601)
     values["sunset"] = w.sunset_time()*1000 #Sunset time (GMT UNIXtime or ISO 8601)
     values["weather_code"] =  w.weather_code
-    values["weather_icon"] = w.weather_icon_name.encode('ascii')
+    
+    code1 = w.weather_icon_name.encode('ascii')
+    print(code1)
+    code = int.from_bytes( code1, byteorder='little', signed=False )
+    print(code)
+    values["weather_icon"] = code
     values["visibility_distance"] = w.visibility_distance
 
     location = observation.location.name
