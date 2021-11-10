@@ -11,7 +11,6 @@ import json
 import paho.mqtt.client as mqtt
 import random
 import configparser
-import base64
 from datetime import datetime
 
 do_raw_log = os.getenv("LOGGING", "false").lower() == 'true'
@@ -68,12 +67,8 @@ def getData(client, mqttTopic, config_dict):
     values["sunrise"] = w.sunrise_time()*1000 #Sunrise time (GMT UNIXtime or ISO 8601)
     values["sunset"] = w.sunset_time()*1000 #Sunset time (GMT UNIXtime or ISO 8601)
     values["weather_code"] =  w.weather_code
-    
-    code1 = w.weather_icon_name.encode('ascii')
-    print(code1)
-    code = int.from_bytes( code1, byteorder='little', signed=False )
-    print(code)
-    values["weather_icon"] = code
+
+    values["weather_icon"] = w.weather_icon_name
     values["visibility_distance"] = w.visibility_distance
 
     location = observation.location.name
@@ -113,7 +108,7 @@ def getData(client, mqttTopic, config_dict):
     # Print the data
     if do_raw_log:
         print(values)
-    
+
     json_body = { k: v for k, v in values.items() }
 
     if do_raw_log:
@@ -151,5 +146,5 @@ try:
         getData(client, mqttTopic, config_dict)
         time.sleep(pool_frequency)
 except Exception as e:
-    print(e) 
+    print(e)
     pass
