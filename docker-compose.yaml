@@ -13,7 +13,7 @@ services:
       - MQTT_TOPIC=reading/weather
     restart: always
     depends_on:
-      - mqtt
+      - mqttweather
     restart: always
     links:
       - mqttweather
